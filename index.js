@@ -22,11 +22,6 @@ app.get("/", function (req, res) {
 var email;
 //otp generate
 var otp;
-// otp = Math.random();
-// otp = otp * 1000000;
-// otp = parseInt(otp);
-// console.log(otp);
-
 app.post('/send', function (req, res) {
     otp = Math.random();
     otp = otp * 1000000;
@@ -40,11 +35,6 @@ app.post('/verify', function (req, res) {
     //console.log(req.body.otp);
   if (req.body.otp == otp) {
     
-    // res
-    //   .status(200)
-    //   .send(
-    //     `<h3>You has been successfully registered Your Email is </h3><h2> ${email}</h2>`
-    //   );
     res.status(200).render("myprofile",{ msgg: `${email}` })
   } else {
     res.status(300).render("otp", { msg: "You have entered incorrect OTP" });
